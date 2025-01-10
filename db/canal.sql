@@ -1,2 +1,14 @@
-INSERT INTO public.canal (frecventa, digital, criptat) VALUES (440.375223, true, false);
-INSERT INTO public.canal (frecventa, digital, criptat) VALUES (440.375173, true, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (1, 405.123456, true, true);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (2, 410.654321, true, true);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (3, 415.987654, true, true);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (4, 420.543210, true, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (5, 425.876543, true, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (6, 430.234567, false, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (7, 435.567890, false, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (8, 440.123456, false, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (9, 445.654321, false, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (10, 450.987654, false, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (11, 455.543210, true, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (12, 460.876543, true, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (13, 465.234567, true, false);
+INSERT INTO public.canal (id_canal, frecventa, digital, criptat) VALUES (14, 460.567890, true, false);

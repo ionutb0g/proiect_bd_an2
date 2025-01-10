@@ -1,0 +1,14 @@
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (405.123456, true, true);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (410.654321, true, true);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (415.987654, true, true);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (420.543210, true, false);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (425.876543, true, false);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (430.234567, false, false);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (435.567890, false, false);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (440.123456, false, false);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (445.654321, false, false);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (450.987654, false, false);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (455.543210, true, false);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (460.876543, true, false);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (465.234567, true, false);
+INSERT INTO public.canal (frecventa, digital, criptat) VALUES (460.567890, true, false);

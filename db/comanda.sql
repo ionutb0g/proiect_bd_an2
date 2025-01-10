@@ -1,1 +1,15 @@
-INSERT INTO public.comanda (metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES ('transfer_bancar', '2025-01-01', '2025-01-03', null, 15.00, 28462401);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (1, 'numerar', '2023-11-15', '2023-11-20', null, null, 176420);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (2, 'transfer_bancar', '2023-11-10', '2023-11-12', null, null, 726429);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (3, 'numerar', '2023-10-05', '2023-10-10', null, null, 842373);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (4, 'numerar', '2023-09-01', '2023-09-07', 0.25, null, 21345245);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (5, 'transfer_bancar', '2023-08-20', '2023-08-25', 0.10, null, 28462401);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (6, 'numerar', '2023-07-01', '2023-07-05', 0.05, null, 9361451);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (7, 'transfer_bancar', '2023-06-15', '2023-06-20', 0.30, null, 3214510);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (8, 'numerar', '2023-05-10', '2023-05-15', null, 25.00, 29456140);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (9, 'transfer_bancar', '2023-04-01', '2023-04-05', null, 15.50, 203495);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (10, 'numerar', '2023-03-01', '2023-03-10', null, 40.00, null);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (11, 'transfer_bancar', '2023-02-15', '2023-02-20', null, 18.75, null);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (12, 'numerar', '2023-01-10', '2023-01-15', 0.45, null, 1038461);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (13, 'transfer_bancar', '2022-12-01', '2022-12-10', null, 12.00, 10357295);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (14, 'numerar', '2022-11-05', '2022-11-12', 0.02, null, 176420);
+INSERT INTO public.comanda (id_comanda, metoda_plata, data_inchiriere, data_returnare, discount, cost_daune, cif_client) VALUES (15, 'transfer_bancar', '2022-10-01', '2022-10-08', null, 8.50, 726429);
