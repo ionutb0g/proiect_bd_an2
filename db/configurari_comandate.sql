@@ -1,2 +1,15 @@
-INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (1, 3, 28.86);
-INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (1, 6, 15.78);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (1, 1, 25.50);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (1, 2, 30.75);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (2, 3, 40.00);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (2, 4, 35.25);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (3, 5, 15.00);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (4, 6, 20.00);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (4, 7, 18.50);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (5, 8, 45.00);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (6, 9, 10.00);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (7, 10, 12.75);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (8, 11, 22.50);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (8, 12, 28.00);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (9, 13, 14.99);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (10, 14, 19.99);
+INSERT INTO public.configurari_comandate (cod_comanda, cod_configurare, pret) VALUES (10, 15, 29.50);

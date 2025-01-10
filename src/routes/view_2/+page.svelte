@@ -36,9 +36,24 @@
 			{#each data.result as order (order.orderId)}
 				<Table.Row>
 					<Table.Cell class="font-medium text-primary">{order.orderId}</Table.Cell>
-					<Table.Cell>{order.customerName}</Table.Cell>
+
+					<Table.Cell>
+						{#if order.customerName}
+							{order.customerName}
+						{:else}
+							<span class="text-xs font-bold text-muted-foreground">NULL</span>
+						{/if}
+					</Table.Cell>
+
 					<Table.Cell>{order.orderedDays}</Table.Cell>
-					<Table.Cell>{order.total}</Table.Cell>
+
+					<Table.Cell>
+						{#if order.total}
+							{order.total}
+						{:else}
+							<span class="text-xs font-bold text-muted-foreground">NULL</span>
+						{/if}
+					</Table.Cell>
 				</Table.Row>
 			{/each}
 		</Table.Body>

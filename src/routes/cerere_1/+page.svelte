@@ -43,8 +43,20 @@
 				<Table.Row>
 					<Table.Cell class="font-medium">{row.id}</Table.Cell>
 					<Table.Cell>{format(row.createdAt, 'dd.MM.yyyy HH:mm:ss')}</Table.Cell>
-					<Table.Cell>{row.firstName}</Table.Cell>
-					<Table.Cell>{row.lastName}</Table.Cell>
+					<Table.Cell>
+						{#if row.firstName}
+							{row.firstName}
+						{:else}
+							<span class="text-xs font-bold text-muted-foreground">NULL</span>
+						{/if}
+					</Table.Cell>
+					<Table.Cell>
+						{#if row.lastName}
+							{row.lastName}
+						{:else}
+							<span class="text-xs font-bold text-muted-foreground">NULL</span>
+						{/if}
+					</Table.Cell>
 					<Table.Cell>{row.equipmentSerialNumber}</Table.Cell>
 				</Table.Row>
 			{/each}

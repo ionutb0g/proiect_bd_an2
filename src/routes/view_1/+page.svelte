@@ -56,7 +56,14 @@
 					</Table.Cell>
 					<Table.Cell>{m.manufacturer}</Table.Cell>
 					<Table.Cell>{m.name}</Table.Cell>
-					<Table.Cell>{m.batteryCapacity}</Table.Cell>
+					<Table.Cell>
+						{#if m.batteryCapacity}
+							{m.batteryCapacity}
+						{:else}
+							<span class="text-xs font-bold text-muted-foreground">NULL</span>
+						{/if}
+					</Table.Cell>
+
 					<Table.Cell>{m.power}</Table.Cell>
 				</Table.Row>
 			{/each}

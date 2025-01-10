@@ -22,7 +22,7 @@
 	<h2 class="text-lg font-semibold">Cerință</h2>
 	<p class="max-w-4xl text-sm">
 		Să se afișeze codul comenzii, data închirierii, numărul total de configurări închiriate, și
-		numărul total de canale folosite pentru fiecare comandă ce folosește mai mult de 4 canale.
+		numărul total de canale folosite pentru fiecare comandă ce folosește 4 canale sau mai mult.
 	</p>
 </div>
 
