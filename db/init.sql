@@ -165,43 +165,17 @@ from comanda c
          left join configurari_comandate cc on c.id_comanda = cc.cod_comanda
          left join canale_configurari chc on cc.cod_configurare = chc.cod_configurare
 group by c.id_comanda
-having count(distinct chc.cod_canal) >=2;
+having count(distinct chc.cod_canal) >= 2;
 
 
 
-INSERT INTO configurari_comandate (cod_comanda, cod_configurare, pret)
-VALUES
-    -- Configurations for Command 1
-    (1, 1, 25.50),
-    (1, 2, 30.75),
-
-    -- Configurations for Command 2
-    (2, 3, 40.00),
-    (2, 4, 35.25),
-
-    -- Configurations for Command 3
-    (3, 5, 15.00),
-
-    -- Configurations for Command 4
-    (4, 6, 20.00),
-    (4, 7, 18.50),
-
-    -- Configurations for Command 5
-    (5, 8, 45.00),
-
-    -- Configurations for Command 6
-    (6, 9, 10.00),
-
-    -- Configurations for Command 7
-    (7, 10, 12.75),
-
-    -- Configurations for Command 8
-    (8, 11, 22.50),
-    (8, 12, 28.00),
-
-    -- Configurations for Command 9
-    (9, 13, 14.99),
-
-    -- Configurations for Command 10
-    (10, 14, 19.99),
-    (10, 15, 29.50);
+select c.id_configurare,
+       c.moment_configurare,
+       t.prenume,
+       t.nume,
+       e.nr_serie
+from configurare c
+         left join echipament e on e.id_echipament = c.cod_echipament
+         left join tehnician t on t.id_tehnician = c.cod_tehnician
+where (e.pret_achizitie > 1500 and
+       (e.data_achizitie + make_interval(months => coalesce(e.garantie, 0))) > now())

@@ -21,6 +21,8 @@ export async function load() {
 			)
 		);
 
+	console.log(query.toSQL());
+
 	const result = await query;
 
 	return { result };

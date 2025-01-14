@@ -1,38 +1,52 @@
+<script lang="ts" module>
+	const directions = [null, 'asc', 'desc'] as const;
+</script>
+
 <script lang="ts">
 	import { ArrowDown, ArrowUp, Key } from 'lucide-svelte';
 	import { Button } from './ui/button';
+	import { page } from '$app/state';
 
 	interface Props {
-		tableName: string;
 		colDisplay: string;
 		colName: string;
-		sortColumn: string | null;
-		sortDirection: 'asc' | 'desc';
 		isPrimaryKey?: boolean;
 	}
 
-	let {
-		tableName,
-		colDisplay,
-		colName,
-		sortColumn,
-		sortDirection,
-		isPrimaryKey = false
-	}: Props = $props();
+	let { colDisplay, colName, isPrimaryKey = false }: Props = $props();
+
+	const [path, dir] = $derived.by(() => {
+		const newUrl = new URL(page.url);
+		let orderByDirection: string | null = null;
+
+		let found = false;
+		for (const [key, value] of page.url.searchParams) {
+			if (key === 'order_by' && value.startsWith(colName + '_')) {
+				newUrl.searchParams.delete('order_by', value);
+				[, orderByDirection] = value.split('_');
+				found = true;
+			}
+		}
+		let newDirection = !found ? 'asc' : orderByDirection === 'asc' ? 'desc' : null;
+
+		if (newDirection) {
+			newUrl.searchParams.append('order_by', `${colName}_${newDirection}`);
+		}
+
+		return [newUrl.pathname + newUrl.search, orderByDirection];
+	});
 </script>
 
-<Button
-	variant="ghost"
-	href="/{tableName}?order_by={colName}&order_direction={sortDirection === 'desc' ? 'asc' : 'desc'}"
->
+<Button variant="ghost" href={path}>
 	{#if isPrimaryKey}
 		<Key size={14} />
 	{/if}
 	<span>{colDisplay}</span>
-	{#if sortColumn === colName}
-		{#if sortDirection === 'desc'}
+
+	{#if dir}
+		{#if dir === 'asc'}
 			<ArrowDown size={14} />
-		{:else}
+		{:else if dir === 'desc'}
 			<ArrowUp size={14} />
 		{/if}
 	{/if}

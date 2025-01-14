@@ -1,17 +1,15 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
 	import * as Table from '$lib/components/ui/table/index.js';
-	import { ArrowDown, ArrowRight, ArrowUp, Key } from 'lucide-svelte';
+	import { ArrowRight } from 'lucide-svelte';
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import AddDialog from './AddDialog.svelte';
 	import SortColBtn from '$lib/components/SortColBtn.svelte';
 
 	let { data } = $props();
-	let { sortColumn } = $derived(data);
-	let sortDirection: 'desc' | 'asc' = $derived(data.sortDirection === 'desc' ? 'desc' : 'asc');
 </script>
 
-<header class="flex items-center justify-between gap-4 bg-sidebar p-4">
+<header class="sticky top-0 z-10 flex items-center justify-between gap-4 bg-sidebar p-4">
 	<div class="flex items-center gap-4">
 		<Sidebar.Trigger></Sidebar.Trigger>
 		<h1 class="text-xl font-bold">Tabel: <span class="text-primary">client</span></h1>
@@ -26,77 +24,28 @@
 		<Table.Header>
 			<Table.Row>
 				<Table.Head class="text-primary">
-					<SortColBtn
-						tableName="client"
-						colName="cif"
-						colDisplay="cif_client"
-						{sortColumn}
-						{sortDirection}
-						isPrimaryKey
-					/>
+					<SortColBtn colName="cif" colDisplay="cif_client" isPrimaryKey />
 				</Table.Head>
 				<Table.Head>
-					<SortColBtn
-						tableName="client"
-						colName="name"
-						colDisplay="denumire"
-						{sortColumn}
-						{sortDirection}
-					/>
+					<SortColBtn colName="name" colDisplay="denumire" />
 				</Table.Head>
 				<Table.Head>
-					<SortColBtn
-						tableName="client"
-						colName="vat"
-						colDisplay="platitor_tva"
-						{sortColumn}
-						{sortDirection}
-					/>
+					<SortColBtn colName="vat" colDisplay="platitor_tva" />
 				</Table.Head>
 				<Table.Head>
-					<SortColBtn
-						tableName="client"
-						colName="email"
-						colDisplay="email"
-						{sortColumn}
-						{sortDirection}
-					/>
+					<SortColBtn colName="email" colDisplay="email" />
 				</Table.Head>
 				<Table.Head>
-					<SortColBtn
-						tableName="client"
-						colName="area"
-						colDisplay="judet"
-						{sortColumn}
-						{sortDirection}
-					/>
+					<SortColBtn colName="area" colDisplay="judet" />
 				</Table.Head>
 				<Table.Head>
-					<SortColBtn
-						tableName="client"
-						colName="city"
-						colDisplay="localitate"
-						{sortColumn}
-						{sortDirection}
-					/>
+					<SortColBtn colName="city" colDisplay="localitate" />
 				</Table.Head>
 				<Table.Head>
-					<SortColBtn
-						tableName="client"
-						colName="street"
-						colDisplay="strada"
-						{sortColumn}
-						{sortDirection}
-					/>
+					<SortColBtn colName="street" colDisplay="strada" />
 				</Table.Head>
 				<Table.Head>
-					<SortColBtn
-						tableName="client"
-						colName="houseNumber"
-						colDisplay="nr_stradal"
-						{sortColumn}
-						{sortDirection}
-					/>
+					<SortColBtn colName="houseNumber" colDisplay="nr_strada" />
 				</Table.Head>
 				<Table.Head class="text-right">Acțiuni</Table.Head>
 			</Table.Row>

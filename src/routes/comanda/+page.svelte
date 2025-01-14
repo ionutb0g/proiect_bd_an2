@@ -9,7 +9,7 @@
 	let { data } = $props();
 </script>
 
-<header class="flex items-center justify-between gap-4 bg-sidebar p-4">
+<header class="sticky top-0 z-10 flex items-center justify-between gap-4 bg-sidebar p-4">
 	<div class="flex items-center gap-4">
 		<Sidebar.Trigger></Sidebar.Trigger>
 		<h1 class="text-xl font-bold">Tabel: <span class="text-primary">comanda</span></h1>

@@ -4,7 +4,7 @@ import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { formSchema } from './schema.js';
 import { fail } from '@sveltejs/kit';
-import { asc, desc } from 'drizzle-orm';
+import { asc, desc, SQL } from 'drizzle-orm';
 
 function isValidColumn(colName: string): colName is keyof typeof customer.$inferInsert {
 	if (Object.keys(customer).includes(colName)) {
@@ -14,18 +14,24 @@ function isValidColumn(colName: string): colName is keyof typeof customer.$infer
 }
 
 export async function load({ url }) {
-	const sortColumn = url.searchParams.get('order_by');
-	const sortDirection = url.searchParams.get('order_direction');
-
 	const query = db.select().from(customer);
-	if (sortColumn && isValidColumn(sortColumn)) {
-		const orderDirFn = sortDirection === 'desc' ? desc : asc;
-		query.orderBy(orderDirFn(customer[sortColumn]));
+
+	const sortConditions: SQL<unknown>[] = [];
+
+	for (const rule of url.searchParams.getAll('order_by')) {
+		const [colName, colDir] = rule.split('_');
+		if (colName && isValidColumn(colName)) {
+			const orderDirFn = colDir === 'desc' ? desc : asc;
+			sortConditions.push(orderDirFn(customer[colName]));
+		}
+	}
+	if (sortConditions.length) {
+		query.orderBy(...sortConditions);
 	}
 
 	const result = await query;
 
-	return { result, sortColumn, sortDirection, addForm: await superValidate(zod(formSchema)) };
+	return { result, addForm: await superValidate(zod(formSchema)) };
 }
 
 export const actions = {
