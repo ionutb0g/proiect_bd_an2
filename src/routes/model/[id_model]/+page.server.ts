@@ -38,6 +38,6 @@ export const actions = {
 				return fail(400, { ...e });
 			}
 		}
-		return redirect(303, '/client');
+		return redirect(303, '/model');
 	}
 };

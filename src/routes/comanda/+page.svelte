@@ -5,6 +5,7 @@
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import AddDialog from './AddDialog.svelte';
 	import { format } from 'date-fns';
+	import SortColBtn from '$lib/components/SortColBtn.svelte';
 
 	let { data } = $props();
 </script>
@@ -25,15 +26,26 @@
 		<Table.Header>
 			<Table.Row>
 				<Table.Head class="flex items-center gap-1 text-primary">
-					<Key size={14} />
-					<span>id_comanda</span>
+					<SortColBtn colName="id" colDisplay="id_comanda" isPrimaryKey />
 				</Table.Head>
-				<Table.Head>metoda_plata</Table.Head>
-				<Table.Head>data_inchiriere</Table.Head>
-				<Table.Head>data_returnare</Table.Head>
-				<Table.Head>discount</Table.Head>
-				<Table.Head>cost_daune</Table.Head>
-				<Table.Head>cif_client</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="paymentMethod" colDisplay="metoda_plata" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="startedAt" colDisplay="data_inchiriere" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="endedAt" colDisplay="data_returnare" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="discount" colDisplay="discount" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="damageCost" colDisplay="cost_daune" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="customerCui" colDisplay="cif_client" />
+				</Table.Head>
 				<Table.Head class="text-right">Acțiuni</Table.Head>
 			</Table.Row>
 		</Table.Header>
@@ -54,7 +66,7 @@
 					</Table.Cell>
 					<Table.Cell>
 						{#if order.discount}
-							{order.discount.slice(2)}%
+							{parseInt(order.discount.slice(2))}%
 						{:else}
 							<span class="text-xs font-bold text-muted-foreground">NULL</span>
 						{/if}
@@ -66,7 +78,13 @@
 							<span class="text-xs font-bold text-muted-foreground">NULL</span>
 						{/if}
 					</Table.Cell>
-					<Table.Cell>{order.customerCui}</Table.Cell>
+					<Table.Cell>
+						{#if order.customerCui}
+							{order.customerCui}
+						{:else}
+							<span class="text-xs font-bold text-muted-foreground">NULL</span>
+						{/if}
+					</Table.Cell>
 					<Table.Cell class="flex w-full items-end justify-end gap-2">
 						<Button href="/comanda/{order.id}" variant="outline" size="icon">
 							<ArrowRight />

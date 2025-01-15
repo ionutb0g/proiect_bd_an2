@@ -5,6 +5,7 @@ import { zod } from 'sveltekit-superforms/adapters';
 import { updateFormSchema } from '../schema';
 import { fail, redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
+import postgres from 'postgres';
 
 export async function load({ params }) {
 	const cif = params.cif_client;
@@ -26,7 +27,13 @@ export const actions = {
 	},
 	delete: async (event) => {
 		const cif = event.params.cif_client;
-		await db.delete(customer).where(eq(customer.cif, cif));
+		try {
+			await db.delete(customer).where(eq(customer.cif, cif));
+		} catch (e) {
+			if (e instanceof postgres.PostgresError) {
+				return fail(400, { ...e });
+			}
+		}
 		return redirect(303, '/client');
 	}
 };

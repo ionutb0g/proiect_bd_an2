@@ -5,6 +5,7 @@
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import AddDialog from './AddDialog.svelte';
 	import { format } from 'date-fns';
+	import SortColBtn from '$lib/components/SortColBtn.svelte';
 
 	let { data } = $props();
 </script>
@@ -24,15 +25,24 @@
 	<Table.Root>
 		<Table.Header>
 			<Table.Row>
-				<Table.Head class="flex items-center gap-1 text-primary">
-					<Key size={14} />
-					<span>id_configurare</span>
+				<Table.Head class="text-primary">
+					<SortColBtn colName="id" colDisplay="id_configurare" isPrimaryKey />
 				</Table.Head>
-				<Table.Head>moment_configurare</Table.Head>
-				<Table.Head>putere</Table.Head>
-				<Table.Head>prioritate</Table.Head>
-				<Table.Head>cod_echipament</Table.Head>
-				<Table.Head>cod_tehnician</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="createdAt" colDisplay="moment_configurare" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="power" colDisplay="putere" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="priority" colDisplay="prioritate" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="equipmentId" colDisplay="cod_echipament" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="technicianId" colDisplay="cod_tehnician" />
+				</Table.Head>
 				<Table.Head class="text-right">Acțiuni</Table.Head>
 			</Table.Row>
 		</Table.Header>
@@ -54,12 +64,16 @@
 						</div>
 					</Table.Cell>
 					<Table.Cell>
-						<div class="flex items-center gap-2">
-							<span> {configuration.technicianId} </span>
-							<Button href="/tehnician/{configuration.technicianId}" variant="ghost" size="icon">
-								<ArrowRight />
-							</Button>
-						</div>
+						{#if configuration.technicianId}
+							<div class="flex items-center gap-2">
+								<span> {configuration.technicianId} </span>
+								<Button href="/tehnician/{configuration.technicianId}" variant="ghost" size="icon">
+									<ArrowRight />
+								</Button>
+							</div>
+						{:else}
+							<span class="text-xs font-bold text-muted-foreground">NULL</span>
+						{/if}
 					</Table.Cell>
 					<Table.Cell class="flex w-full items-end justify-end gap-2">
 						<Button href="/configurare/{configuration.id}" variant="outline" size="icon">

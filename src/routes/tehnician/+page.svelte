@@ -5,6 +5,7 @@
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import AddDialog from './AddDialog.svelte';
 	import { format } from 'date-fns';
+	import SortColBtn from '$lib/components/SortColBtn.svelte';
 
 	let { data } = $props();
 </script>
@@ -24,15 +25,27 @@
 	<Table.Root>
 		<Table.Header>
 			<Table.Row>
-				<Table.Head class="flex items-center gap-1 text-primary">
-					<Key size={14} />
-					<span>id_tehnician</span>
+				<Table.Head class="text-primary">
+					<SortColBtn colName="id" colDisplay="id_tehnician" isPrimaryKey />
 				</Table.Head>
-				<Table.Head>cnp</Table.Head>
-				<Table.Head>prenume</Table.Head>
-				<Table.Head>nume</Table.Head>
-				<Table.Head>numar_telefon</Table.Head>
-				<Table.Head>data_angajare</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="cnp" colDisplay="cnp" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="firstName" colDisplay="prenume" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="lastName" colDisplay="nume" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="phoneNumber" colDisplay="numar_telefon" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="hireDate" colDisplay="data_angajare" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="salary" colDisplay="salariu" />
+				</Table.Head>
 				<Table.Head class="text-right">Acțiuni</Table.Head>
 			</Table.Row>
 		</Table.Header>

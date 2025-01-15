@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { ArrowLeft } from 'lucide-svelte';
 	import UpdateForm from './UpdateForm.svelte';
 	import { enhance } from '$app/forms';
 	import { toast } from 'svelte-sonner';
+	import type { PostgresError } from 'postgres';
 
 	let { data } = $props();
 </script>
@@ -27,9 +28,14 @@
 	<form
 		action="?/delete"
 		method="POST"
-		use:enhance={() => () => {
-			history.back();
-			toast.success('Clientul a fost eliminat cu succes');
+		use:enhance={() => (e) => {
+			if (e.result.type !== 'failure') {
+				history.back();
+				toast.success('Clientul a fost eliminat cu succes');
+			}
+			if (e.result.type === 'failure') {
+				toast.error('Eroare', { description: (e.result.data as unknown as PostgresError).detail });
+			}
 		}}
 	>
 		<Button type="submit" variant="destructive">Elimină</Button>

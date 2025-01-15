@@ -1,2 +1,4 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<div class="p-8">
+	<h1 class="text-3xl font-bold">Proiect BD</h1>
+	<h2 class="text-xl font-semibold">Închirieri echipamente de comunicație radio</h2>
+</div>

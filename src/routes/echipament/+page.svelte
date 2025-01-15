@@ -5,6 +5,7 @@
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import AddDialog from './AddDialog.svelte';
 	import { format } from 'date-fns';
+	import SortColBtn from '$lib/components/SortColBtn.svelte';
 
 	let { data } = $props();
 </script>
@@ -24,15 +25,24 @@
 	<Table.Root>
 		<Table.Header>
 			<Table.Row>
-				<Table.Head class="flex items-center gap-1 text-primary">
-					<Key size={14} />
-					<span>id_echipament</span>
+				<Table.Head class="text-primary">
+					<SortColBtn colName="id" colDisplay="id_echipament" isPrimaryKey />
 				</Table.Head>
-				<Table.Head>nr_serie</Table.Head>
-				<Table.Head>data_achizitie</Table.Head>
-				<Table.Head>pret_achizitie</Table.Head>
-				<Table.Head>garantie</Table.Head>
-				<Table.Head>cod_model</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="serialNumber" colDisplay="nr_serie" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="purchaseDate" colDisplay="data_achizitie" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="purchasePrice" colDisplay="pret_achizitie" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="warranty" colDisplay="garantie" />
+				</Table.Head>
+				<Table.Head>
+					<SortColBtn colName="modelId" colDisplay="cod_model" />
+				</Table.Head>
 				<Table.Head class="text-right">Acțiuni</Table.Head>
 			</Table.Row>
 		</Table.Header>

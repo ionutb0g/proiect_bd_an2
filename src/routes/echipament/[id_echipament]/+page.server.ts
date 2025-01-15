@@ -5,6 +5,7 @@ import { zod } from 'sveltekit-superforms/adapters';
 import { updateFormSchema } from '../schema';
 import { fail, redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
+import postgres from 'postgres';
 
 export async function load({ params }) {
 	const id = parseInt(params.id_echipament);
@@ -30,7 +31,14 @@ export const actions = {
 	},
 	delete: async (event) => {
 		const id = parseInt(event.params.id_echipament);
-		await db.delete(equipment).where(eq(equipment.id, id));
+		try {
+			await db.delete(equipment).where(eq(equipment.id, id));
+		} catch (e) {
+			if (e instanceof postgres.PostgresError) {
+				return fail(400, { ...e });
+			}
+		}
+
 		return redirect(303, '/client');
 	}
 };

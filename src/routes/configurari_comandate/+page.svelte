@@ -4,6 +4,7 @@
 	import { ArrowRight, Key } from 'lucide-svelte';
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import AddDialog from './AddDialog.svelte';
+	import SortColBtn from '$lib/components/SortColBtn.svelte';
 
 	let { data } = $props();
 </script>
@@ -25,19 +26,15 @@
 	<Table.Root>
 		<Table.Header>
 			<Table.Row>
-				<Table.Head>
-					<div class="inline-flex items-center gap-1 text-primary">
-						<Key size={14} />
-						<span>cod_comanda</span>
-					</div>
+				<Table.Head class="text-primary">
+					<SortColBtn colName="orderId" colDisplay="cod_comanda" isPrimaryKey />
+				</Table.Head>
+				<Table.Head class="text-primary">
+					<SortColBtn colName="configurationId" colDisplay="cod_configurare" isPrimaryKey />
 				</Table.Head>
 				<Table.Head>
-					<div class="inline-flex items-center gap-1 text-primary">
-						<Key size={14} />
-						<span>cod_configurare</span>
-					</div>
+					<SortColBtn colName="price" colDisplay="pret" isPrimaryKey />
 				</Table.Head>
-				<Table.Head>pret</Table.Head>
 				<Table.Head class="text-right">Acțiuni</Table.Head>
 			</Table.Row>
 		</Table.Header>
